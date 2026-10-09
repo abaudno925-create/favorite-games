@@ -34,6 +34,9 @@ gh release create "$VERSION" "$ZIP" \
 WORK="$(mktemp -d)"
 gh repo fork "$REGISTRY_URL" --clone=true -- "$WORK/registry"
 cd "$WORK/registry"
+# коммит в форке — от твоего аккаунта (иначе git может not спросить, кто ты)
+git config user.name "$GH_USER"
+git config user.email "$GH_USER@users.noreply.github.com"
 python3 - "$HERE/registry-entry.json" <<'PY'
 import json, sys
 entry = json.load(open(sys.argv[1], encoding="utf-8"))
@@ -45,7 +48,7 @@ json.dump(doc, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 open(path, "a", encoding="utf-8").write("\n")
 print("добавлено:", entry["id"])
 PY
-git checkout -q -b "add-favorite-games"
+git checkout -q -B "add-favorite-games"
 git add plugins.json
 git commit -q -m "Add favorite-games: desktop widget for favorite games"
 git push -q origin HEAD
