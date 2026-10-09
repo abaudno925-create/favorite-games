@@ -1,0 +1,27 @@
+{
+  "id": "favorite-games",
+  "name": { "ru": "Любимые игры", "en": "Favorite Games" },
+  "version": "1.0.0",
+  "author": "erocode",
+  "description": {
+    "ru": "Виджет на рабочий стол с любимыми играми: добавить, убрать и запустить в один клик. Запускает .desktop-игры и любые команды (steam, lutris, wine), показывает, какая игра уже идёт, и ищется в лаунчере по «games».",
+    "en": "A desktop widget for your favorite games: add, remove and launch in one click. Runs .desktop entries and any command (steam, lutris, wine), shows which game is already running, and is searchable in the launcher with “games”."
+  },
+  "icon": "gamepad",
+  "enabledByDefault": true,
+  "themes": ["pixel", "mac"],
+  "realms": ["heaven", "hell"],
+  "desktopTitle": "games",
+  "desktopWidget": "DesktopWidget.qml",
+  "barWidget": "BarWidget.qml",
+  "launcher": "Launcher.qml",
+  "settings": "Settings.qml",
+  "achievements": [
+    { "id": "first-game", "name": { "ru": "Первая в коллекции", "en": "First in the collection" },
+      "desc": { "ru": "Добавить первую игру", "en": "Add your first game" }, "icon": "gamepad" },
+    { "id": "first-launch", "name": { "ru": "Поехали", "en": "Off we go" },
+      "desc": { "ru": "Запустить игру из виджета", "en": "Launch a game from the widget" }, "icon": "play" },
+    { "id": "ten-launches", "name": { "ru": "Завсегдатай", "en": "Regular" },
+      "desc": { "ru": "Запустить игры десять раз", "en": "Launch games ten times" }, "goal": 10, "tier": 3, "icon": "star" }
+  ]
+}
