@@ -42,6 +42,19 @@ cp -a favorite-games ~/.config/angelos/plugins/favorite-games
 Затем ПКМ по обоям → **Вид → Виджеты → «Любимые игры»** (или Settings → Plugins, чтобы
 включить плагин). Compiled: ничего не нужно, это обычный QML.
 
+## Публикация / Publishing
+
+```bash
+sudo pacman -S github-cli && gh auth login     # один раз
+./build-zip.sh                                  # релизный архив ../favorite-games-v1.0.0.zip
+./publish.sh                                    # репозиторий, тег, релиз и PR в реестр сообщества
+```
+
+`publish.sh` делает всё: создаёт публичный репозиторий `favorite-games`, пушит тег
+`v1.0.0`, загружает архив в GitHub Releases, форкает
+[реестр сообщества](https://github.com/futureUnd1ground/angelos-community-registry),
+добавляет запись (`category: Widgets`, `status: pending`) и открывает pull request.
+
 ## Разработка / Development
 
 ```bash
